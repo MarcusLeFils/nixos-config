@@ -15,7 +15,6 @@
         provider = "openrouter";
         model = "deepseek/deepseek-v4-flash";
       };
-      platforms.email.require_authenticated_sender = false;
     };
   };
 
