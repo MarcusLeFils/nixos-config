@@ -13,10 +13,7 @@
     ./hermes-agent.nix
   ];
 
-  # networking.hostName = "nixos"; # Define your hostname.
-
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
+  networking.hostName = "hermes-agent"; # Define your hostname.
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
