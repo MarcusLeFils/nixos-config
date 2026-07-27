@@ -19,4 +19,6 @@
       };
     };
   };
+
+  users.users.root.home = "/var/lib/hermes/home";
 }
