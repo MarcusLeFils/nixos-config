@@ -78,6 +78,9 @@
     wget
     git
     fastfetch
+    unzip
+    bitwarden-cli
+    expect
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
