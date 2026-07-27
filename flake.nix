@@ -19,5 +19,6 @@
         ./configuration.nix
       ];
     };
+    nixosConfigurations.hermes-agent = self.nixosConfigurations.container;
   };
 }

@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./hermes-agent.nix
+    ./signal-cli-daemon.service.nix
   ];
 
   networking.hostName = "hermes-agent"; # Define your hostname.
@@ -84,6 +85,7 @@
     jq
     himalaya
     openssl
+    signal-cli
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
