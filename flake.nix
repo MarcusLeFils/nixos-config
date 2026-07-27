@@ -5,15 +5,20 @@
     # i.e. nixos-24.11
     # Use `nix flake update` to update the flake to the latest revision of the chosen release channel.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
   outputs = inputs @ {
     self,
     nixpkgs,
+    hermes-agent,
     ...
   }: {
     # NOTE: 'nixos' is the default hostname
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      modules = [./configuration.nix];
+      modules = [
+        hermes-agent.nixosModules.default
+        ./configuration.nix
+      ];
     };
   };
 }
