@@ -23,23 +23,15 @@ in
       Type = "simple";
       User = chromiumUser;
       Group = chromiumUser;
-      ExecStart = "${pkgs.chromium}/bin/chromium \
-        --headless \
-        --remote-debugging-port=9222 \
-        --user-data-dir=${chromiumDataDir} \
-        --no-first-run \
-        --no-default-browser-check \
-        --disable-gpu \
-        --disable-software-rasterizer";
+      ExecStart = ''
+        ${pkgs.chromium}/bin/chromium --headless --remote-debugging-port=9222 --user-data-dir=${chromiumDataDir} --no-first-run --no-default-browser-check --disable-gpu --disable-crashpad-forwarding
+      '';
       Restart = "on-failure";
       RestartSec = 5;
       TimeoutStartSec = 30;
-      # Hardening
+      # Light hardening — Chromium needs /dev/urandom, shared libs, fonts
       NoNewPrivileges = true;
-      ProtectSystem = "strict";
-      ProtectHome = true;
       PrivateTmp = true;
-      PrivateDevices = true;
     };
   };
 }
