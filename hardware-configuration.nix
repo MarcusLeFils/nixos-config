@@ -3,5 +3,5 @@
 # to /etc/nixos/configuration.nix instead.
 {lib, ...}: {
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  boot.isContainer = true;
+  boot.isNspawnContainer = true;
 }
