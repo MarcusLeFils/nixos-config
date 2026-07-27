@@ -90,6 +90,10 @@
     himalaya
     openssl
     signal-cli
+    coreutils
+    inetutils
+    swaks
+    chromium
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

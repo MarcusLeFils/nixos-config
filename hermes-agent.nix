@@ -15,6 +15,13 @@
         provider = "openrouter";
         model = "deepseek/deepseek-v4-flash";
       };
+
+      # Enable web search + browser tools for research
+      toolsets = ["hermes-cli" "web" "search" "browser"];
+
+      browser = {
+        engine = "auto";  # auto = uses local Chromium via CDP
+      };
     };
   };
 
