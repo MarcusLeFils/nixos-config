@@ -11,7 +11,12 @@
     group = "root";
 
     settings = {
-      model.default = "mistral/mistral-large-latest";
+      model = {
+        default = "mistral-large-latest";
+        provider = "custom";
+        base_url = "https://api.mistral.ai/v1";
+        api_key = "\${MISTRAL_API_KEY}";
+      };
     };
   };
 }
