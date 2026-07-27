@@ -21,6 +21,7 @@
 
       browser = {
         engine = "auto";  # auto = uses local Chromium via CDP
+        cdp_url = "http://127.0.0.1:9222";
       };
     };
   };

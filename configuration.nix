@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ./hermes-agent.nix
     ./signal-cli-daemon.service.nix
+    ./chromium-headless.nix
   ];
 
   networking.hostName = "hermes-agent"; # Define your hostname.
