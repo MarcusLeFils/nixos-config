@@ -20,11 +20,15 @@
       toolsets = ["hermes-cli" "web" "search" "browser"];
 
       browser = {
-        engine = "auto";  # auto = uses local Chromium via CDP
+        engine = "auto";  # auto = uses local Chromium via CDP (agent-browser symlink)
         cdp_url = "http://127.0.0.1:9222";
       };
     };
   };
 
   users.users.root.home = lib.mkForce "/var/lib/hermes/home";
+
+  # Override HOME set by the hermes-agent module (defaults to /var/lib/hermes)
+  # so tools like gh, ssh, etc. find their configs in the correct home directory
+  systemd.services.hermes-agent.environment.HOME = lib.mkForce "/var/lib/hermes/home";
 }
