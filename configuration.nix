@@ -95,6 +95,7 @@
     inetutils
     swaks
     chromium
+    agent-browser
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
