@@ -31,4 +31,9 @@
   # Override HOME set by the hermes-agent module (defaults to /var/lib/hermes)
   # so tools like gh, ssh, etc. find their configs in the correct home directory
   systemd.services.hermes-agent.environment.HOME = lib.mkForce "/var/lib/hermes/home";
+
+  # Allow nixos-rebuild switch to write to the system profile
+  systemd.services.hermes-agent.serviceConfig.ReadWritePaths = [
+    "/nix/var/nix/profiles"
+  ];
 }
