@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   services.hermes-agent = {
     enable = true;
     environmentFiles = ["/run/secrets/hermes-agent-env"];
@@ -20,5 +20,5 @@
     };
   };
 
-  users.users.root.home = "/var/lib/hermes/home";
+  users.users.root.home = lib.mkForce "/var/lib/hermes/home";
 }
