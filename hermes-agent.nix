@@ -12,11 +12,10 @@
 
     settings = {
       model = {
-        default = "mistral-large-latest";
-        provider = "custom";
-        base_url = "https://api.mistral.ai/v1";
-        api_key = "\${MISTRAL_API_KEY}";
+        provider = "openrouter";
+        model = "deepseek/deepseek-v4-flash";
       };
+      platforms.email.require_authenticated_sender = false;
     };
   };
 
