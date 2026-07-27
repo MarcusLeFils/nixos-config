@@ -13,8 +13,7 @@
     hermes-agent,
     ...
   }: {
-    # NOTE: 'nixos' is the default hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.container = nixpkgs.lib.nixosSystem {
       modules = [
         hermes-agent.nixosModules.default
         ./configuration.nix
