@@ -24,7 +24,7 @@ in
       User = chromiumUser;
       Group = chromiumUser;
       ExecStart = ''
-        ${pkgs.chromium}/bin/chromium --headless --remote-debugging-port=9222 --user-data-dir=${chromiumDataDir} --no-first-run --no-default-browser-check --disable-gpu --disable-crashpad-forwarding
+        ${pkgs.chromium}/bin/chromium --headless=new --remote-debugging-port=9222 --user-data-dir=${chromiumDataDir} --no-first-run --no-default-browser-check --disable-gpu --disable-crashpad-forwarding --disable-blink-features=AutomationControlled --disable-features=ChromeWhatsNewUI,ChromeInProductHelp,ChromeWhatsNewService,TranslateUI --window-size=1920,1080 --start-maximized --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
       '';
       Restart = "on-failure";
       RestartSec = 5;
