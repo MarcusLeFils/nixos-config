@@ -1,4 +1,6 @@
 {
+  description = "Marcus NixOS Config — Hermes Agent container. Mon environnement personnel : packages, services (Hermes, Chromium CDP, Signal CLI), et configuration système.";
+
   inputs = {
     # This is pointing to an unstable release.
     # If you prefer a stable release instead, you can change the word unstable to the latest number shown here: https://nixos.org/download
