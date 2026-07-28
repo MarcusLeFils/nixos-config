@@ -85,7 +85,7 @@
     git
     fastfetch
     unzip
-    bitwarden-cli
+    rbw
     expect
     jq
     himalaya
