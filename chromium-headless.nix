@@ -1,3 +1,19 @@
+# chromium-headless.nix
+# =====================
+# Headless Chromium providing a CDP (Chrome DevTools Protocol) endpoint
+# for Hermes Agent's browser toolset (browser_navigate, browser_click, etc.).
+#
+# Key design decisions:
+# - Runs as a dedicated "chromium-browser" system user (not root!)
+#   => avoids dangerous --no-sandbox flag
+# - Listens on 127.0.0.1:9222 (CDP WebSocket endpoint)
+# - Anti-detection flags: --disable-blink-features=AutomationControlled,
+#   custom User-Agent, --disable-features=ChromeWhatsNewUI, etc.
+# - Light hardening: NoNewPrivileges, PrivateTmp
+# - Restart on failure with 5s delay
+#
+# Added: July 2026 — replaced a failed attempt to use Hermes' built-in
+# Playwright-based browser (which required --no-sandbox in the container).
 { config, lib, pkgs, ... }:
 
 let

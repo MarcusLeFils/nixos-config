@@ -1,3 +1,19 @@
+# hermes-agent.nix
+# ================
+# Hermes Agent service configuration (by Nous Research).
+# This is the main AI agent service that runs Marcus.
+#
+# Configuration overview:
+# - Provider: OpenRouter, Model: deepseek/deepseek-v4-flash
+# - Toolsets: CLI, web search, browser automation
+# - Browser: connects to local Chromium via CDP (127.0.0.1:9222)
+#   provided by the chromium-headless systemd service
+# - Environment secrets loaded from /run/secrets/hermes-agent-env
+# - Runs as root (container limitation) with HOME forced to /var/lib/hermes/home
+#   so SSH keys, git config, gh CLI, etc. are found correctly
+# - ReadWritePaths includes /nix/var/nix/profiles to allow nixos-rebuild switch
+#
+# Dependencies: chromium-headless.nix (browser), signal-cli-daemon.service.nix (Signal)
 {lib, ...}: {
   services.hermes-agent = {
     enable = true;

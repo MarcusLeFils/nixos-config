@@ -77,26 +77,33 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    # Required by Gaspard
-    helix
+    # --- Productivity & dev tools ---
+    helix          # Modal text editor (requested by Gaspard)
+    git            # Version control for the NixOS flake + project repos
+    gh             # GitHub CLI (PRs, issues, auth)
+    jq             # JSON processor for API responses & scripting
+    unzip          # Archive extraction
 
-    # Your pacakges
-    wget
-    git
-    fastfetch
-    unzip
-    rbw
-    expect
-    jq
-    himalaya
-    openssl
-    signal-cli
-    coreutils
-    inetutils
-    swaks
-    chromium
-    agent-browser
-    gh
+    # --- Communication & messaging ---
+    himalaya       # Email CLI client (IMAP/SMTP — used by Hermes email skill)
+    signal-cli     # Signal messaging daemon & CLI (used by Hermes Signal platform)
+    swaks          # Swiss Army Knife for SMTP (email testing / debugging)
+
+    # --- Security & credentials ---
+    rbw            # Rust Bitwarden client (replaced bw/bw-cli) — vaultwarden passwords
+    expect         # Script interactive CLI prompts (needed by rbw pinentry setup)
+    openssl        # TLS/SSL crypto tools (certificates, encryption, SMTP)
+
+    # --- System & network utilities ---
+    wget           # HTTP/S download utility
+    fastfetch      # System info display (replacement for neofetch)
+    inetutils      # Network utilities: ping, hostname, dnsdomainname, logger, etc.
+    coreutils      # GNU core utilities — note: already pulled in by NixOS by default,
+                   # included explicitly for visibility / version pinning.
+
+    # --- Browser & automation ---
+    chromium        # Web browser (used headless via CDP, port 9222 — see chromium-headless.nix)
+    agent-browser   # Browser automation library (Hermes browser toolset dependency)
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
