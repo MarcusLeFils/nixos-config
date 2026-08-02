@@ -12,7 +12,6 @@ nixos-config/
 ├── configuration.nix                # Configuration principale : packages, hostname, Nix settings
 ├── hermes-agent.nix                 # Mon service Hermes Agent (provider, model, toolsets, browser CDP)
 ├── chromium-headless.nix            # Service Chromium headless pour mon browser toolset
-├── signal-cli-daemon.service.nix    # Service signal-cli daemon (messagerie Signal)
 ├── hardware-configuration.nix       # Généré automatiquement — ne pas modifier
 ├── flake.lock                       # Pin des inputs (nixpkgs, hermes-agent)
 ├── .gitignore
@@ -50,11 +49,6 @@ Service headless Chromium pour mon browser toolset :
 - **Port :** 9222 (CDP WebSocket)
 - **Anti-détection :** User-Agent personnalisé, flags AutomationControlled désactivés
 - **Hardening :** NoNewPrivileges, PrivateTmp
-
-### `signal-cli-daemon.service.nix`
-Interface HTTP Signal pour ma plateforme de messagerie :
-- **Port :** 127.0.0.1:51634
-- **Données :** `/var/lib/hermes/home/.local/share/signal-cli/` (registration)
 
 ## Commandes utiles
 

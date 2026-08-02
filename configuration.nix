@@ -11,7 +11,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./hermes-agent.nix
-    ./signal-cli-daemon.service.nix
     ./chromium-headless.nix
   ];
 
@@ -86,7 +85,6 @@
 
     # --- Communication & messaging ---
     himalaya       # Email CLI client (IMAP/SMTP — used by Hermes email skill)
-    signal-cli     # Signal messaging daemon & CLI (used by Hermes Signal platform)
     swaks          # Swiss Army Knife for SMTP (email testing / debugging)
 
     # --- Security & credentials ---
