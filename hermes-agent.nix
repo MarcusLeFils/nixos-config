@@ -29,7 +29,7 @@
     settings = {
       model = {
         provider = "openrouter";
-        model = "deepseek/deepseek-v4-flash";
+        model = "deepseek/deepseek-v4-flash-latest";
       };
 
       # Enable web search + browser tools for research
