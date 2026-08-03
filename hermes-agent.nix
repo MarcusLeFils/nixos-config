@@ -29,6 +29,7 @@
     settings = {
       model = {
         provider = "openrouter";
+        default = "deepseek/deepseek-v4-flash-latest";
         model = "deepseek/deepseek-v4-flash-latest";
       };
 
