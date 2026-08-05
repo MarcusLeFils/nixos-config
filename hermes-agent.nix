@@ -38,10 +38,20 @@
       # Per-platform overrides. gateway_restart_notification=false suppresses
       # the "♻️ Gateway online" home-channel message on gateway restart for
       # email (IMAP/JMAP login is handled on the host; avoids mail noise).
+      #
+      # NOTE: these MUST live under platforms.email.extra (not top-level
+      # platforms.email). The email adapter reads require_authenticated_sender
+      # and the gateway reads gateway_restart_notification from the platform's
+      # `extra` dict / bridged extras — top-level platforms.email.<key> is
+      # silently dropped when the email plugin is enabled via env vars
+      # (gateway/config.py _apply_env_overrides rebuilds the extra dict).
       platforms = {
         email = {
           require_authenticated_sender = false;
-          gateway_restart_notification = false;
+          extra = {
+            require_authenticated_sender = false;
+            gateway_restart_notification = false;
+          };
         };
       };
 
