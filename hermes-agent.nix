@@ -35,6 +35,16 @@
       # Enable web search + browser tools for research
       toolsets = ["hermes-cli" "web" "search" "browser"];
 
+      # Per-platform overrides. gateway_restart_notification=false suppresses
+      # the "♻️ Gateway online" home-channel message on gateway restart for
+      # email (IMAP/JMAP login is handled on the host; avoids mail noise).
+      platforms = {
+        email = {
+          require_authenticated_sender = false;
+          gateway_restart_notification = false;
+        };
+      };
+
       browser = {
         engine = "auto";  # auto = uses local Chromium via CDP (agent-browser symlink)
         cdp_url = "http://127.0.0.1:9222";
