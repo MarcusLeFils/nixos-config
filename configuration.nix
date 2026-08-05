@@ -26,6 +26,20 @@
     trusted-public-keys = ["gasdev.cachix.org-1:eBesrrBJpsMZ33OmvG4aKvfdyVkDa2OKCJ2o80IMJfE="];
   };
 
+  # Automatic Nix store garbage collection (weekly)
+  # Frees disk space by removing generations and store paths older than 30 days.
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  # Automatic store optimisation (weekly)
+  # Deduplicates store paths via hard links — recovers disk space without
+  # deleting anything.
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "03:15" ];
+
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
 
