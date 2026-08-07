@@ -119,7 +119,6 @@
 
     # --- Browser & automation ---
     chromium        # Web browser (used headless via CDP, port 9222 — see chromium-headless.nix)
-    agent-browser   # Browser automation library (Hermes browser toolset dependency)
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
