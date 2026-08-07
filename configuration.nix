@@ -40,6 +40,10 @@
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "03:15" ];
 
+  # Allow running generic dynamically-linked binaries (e.g. agent-browser's
+  # native npm binary) on NixOS by providing a compatible dynamic loader.
+  programs.nix-ld.enable = true;
+
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
 
