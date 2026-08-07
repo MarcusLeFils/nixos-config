@@ -47,9 +47,7 @@
       # (gateway/config.py _apply_env_overrides rebuilds the extra dict).
       platforms = {
         email = {
-          require_authenticated_sender = false;
           extra = {
-            require_authenticated_sender = false;
             gateway_restart_notification = false;
           };
         };
