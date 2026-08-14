@@ -84,6 +84,12 @@ in
       description = "Internal port the Node.js server listens on";
     };
 
+    dataDir = lib.mkOption {
+      type = lib.types.path;
+      default = "/var/lib/odyssee";
+      description = "Persistent writable directory for the SQLite database";
+    };
+
     repoUrl = lib.mkOption {
       type = lib.types.str;
       default = "git@github.com:MarcusLeFils/odyssee.git";
@@ -148,16 +154,16 @@ in
         Type = "simple";
         ExecStart = "${cfg.nodePackage}/bin/node ${odysseePkg}/index.js";
         WorkingDirectory = odysseePkg;
+        # Base SQLite persistante : répertoire d'état géré par systemd
+        # (créé + propriété du DynamicUser), accessible en écriture.
+        StateDirectory = "odyssee";
         Restart = "on-failure";
         RestartSec = 3;
-        User = "nobody";
-        Group = "nogroup";
         DynamicUser = true;
         PrivateTmp = true;
         NoNewPrivileges = true;
         ProtectSystem = "strict";
         ProtectHome = true;
-        ReadWritePaths = [ "/tmp" ];
         AmbientCapabilities = "";
         CapabilityBoundingSet = "";
       };
@@ -166,6 +172,9 @@ in
         PORT = toString cfg.port;
         HOST = "127.0.0.1";
         NODE_ENV = "production";
+        # Pointe la base vers le répertoire persistant (le WorkingDirectory
+        # en store est en lecture seule).
+        DATABASE_URL = "file:${cfg.dataDir}/odyssee.db";
       } // cfg.extraEnv;
     };
 
