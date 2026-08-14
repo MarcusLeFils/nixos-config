@@ -97,6 +97,26 @@
         "type": "github"
       }
     },
+    "odyssee": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786743711,
+        "narHash": "sha256-Mxfh6CSBsPW+FJNzvjXbIPAqjyDEB7Q0Ykeiptf0xtI=",
+        "ref": "refs/heads/main",
+        "rev": "b575bc1242ae45d3c92f069ae3f37a5511474444",
+        "revCount": 25,
+        "type": "git",
+        "url": "ssh://git@github.com/MarcusLeFils/odyssee"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/MarcusLeFils/odyssee"
+      }
+    },
     "pyproject-build-systems": {
       "inputs": {
         "nixpkgs": [
@@ -150,7 +170,8 @@
     "root": {
       "inputs": {
         "hermes-agent": "hermes-agent",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "odyssee": "odyssee"
       }
     },
     "uv2nix": {

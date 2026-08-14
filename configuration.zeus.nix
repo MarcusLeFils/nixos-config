@@ -10,21 +10,17 @@
 {
   imports = [
     ./hardware-configuration.zeus.nix
-    ./modules/odyssee.nix
   ];
 
   # ---- Host identity ----
   networking.hostName = "zeus";
 
-  # ---- Odyssée web app ----
+  # ---- Odyssée web app (module fourni par le flake input `odyssee`) ----
+  # Le reverse-proxy Caddy est géré ici (voir plus bas) ; le service écoute
+  # en local sur 3351.
   services.odyssee = {
     enable = true;
-    domain = "odyssee.gasdev.fr";
-    port = 3001;
-
-    # FIXME: After first build failure, replace lib.fakeSha256 with the
-    # actual SHA256 that Nix outputs in the error message.
-    # repoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    port = 3351;
   };
 
   # ---- Nix settings ----
