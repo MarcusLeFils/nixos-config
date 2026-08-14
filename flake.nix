@@ -22,5 +22,14 @@
       ];
     };
     nixosConfigurations.hermes-agent = self.nixosConfigurations.container;
+
+    # Zeus: OVH VPS hosting Odyssée (SvelteKit web app) behind Caddy.
+    nixosConfigurations.zeus = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hardware-configuration.zeus.nix
+        ./configuration.zeus.nix
+      ];
+    };
   };
 }
