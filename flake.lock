@@ -104,11 +104,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786816476,
-        "narHash": "sha256-pxvQ8P/YiiuwKiaZUAwxRrQiyrx40z8fCas6wdKVeWE=",
+        "lastModified": 1786816822,
+        "narHash": "sha256-gqbO7i3yy0kHkTZyAFEc4scE0T07d45E9Nwzli4+kt8=",
         "ref": "refs/heads/main",
-        "rev": "b6205289b53a2d91aaa196a4a35c1494134e805c",
-        "revCount": 40,
+        "rev": "5999c1f9515ab1e241851dca5b70bd59fabcf7fd",
+        "revCount": 41,
         "type": "git",
         "url": "ssh://git@github.com/MarcusLeFils/odyssee"
       },
