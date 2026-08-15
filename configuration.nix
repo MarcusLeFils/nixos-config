@@ -29,6 +29,10 @@
       "nix-command"
       "flakes"
     ];
+    # Désactive le sandbox de build : le package odyssee (pnpm install) a
+    # besoin du réseau pour télécharger node_modules. Compromis assumé en
+    # phase de dev ; à restaurer via buildNpmPackage/buildPnpmPackage (fixed-output).
+    sandbox = false;
     substituters = ["https://gasdev.cachix.org"];
     trusted-substituters = ["https://gasdev.cachix.org"];
     trusted-public-keys = ["gasdev.cachix.org-1:eBesrrBJpsMZ33OmvG4aKvfdyVkDa2OKCJ2o80IMJfE="];
