@@ -14,6 +14,14 @@
     ./chromium-headless.nix
   ];
 
+  # ---- Odyssée web (module fourni par le flake input `odyssee`) ----
+  # Écoute en local sur 127.0.0.1:3351 (netns partagé avec Zeus) ; Caddy sur
+  # Zeus fait la façade publique odyssee.gasdev.fr → 127.0.0.1:3351.
+  services.odyssee = {
+    enable = true;
+    port = 3351;
+  };
+
   networking.hostName = "hermes-agent"; # Define your hostname.
 
   nix.settings = {

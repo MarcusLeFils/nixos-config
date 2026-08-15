@@ -25,19 +25,12 @@
     nixosConfigurations.container = nixpkgs.lib.nixosSystem {
       modules = [
         hermes-agent.nixosModules.default
+        # Odyssée : service web exposé en local (Caddy sur Zeus fait la façade
+        # publique odyssee.gasdev.fr → 127.0.0.1:3351, netns partagé).
+        odyssee.nixosModules.default
         ./configuration.nix
       ];
     };
     nixosConfigurations.hermes-agent = self.nixosConfigurations.container;
-
-    # Zeus: OVH VPS hosting Odyssée (SvelteKit web app) behind Caddy.
-    nixosConfigurations.zeus = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hardware-configuration.zeus.nix
-        ./configuration.zeus.nix
-        odyssee.nixosModules.default
-      ];
-    };
   };
 }
