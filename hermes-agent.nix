@@ -57,6 +57,15 @@
         engine = "auto";  # auto = uses local Chromium via CDP (agent-browser symlink)
         cdp_url = "http://127.0.0.1:9222";
       };
+
+      # MCP servers: native MCP client tools (mcp_<server>_<tool>)
+      # Slidev deck control via the Slidev MCP server, forwarded to localhost:3030
+      mcp_servers = {
+        slidev = {
+          url = "http://127.0.0.1:3030/__mcp";
+          timeout = 180;
+        };
+      };
     };
   };
 
