@@ -20,7 +20,7 @@
     environmentFiles = ["/run/secrets/hermes-agent-env"];
     addToSystemPackages = true;
 
-    extraDependencyGroups = ["messaging"];
+    extraDependencyGroups = ["messaging" "matrix"];
 
     createUser = false;
     user = "root";
